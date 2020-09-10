@@ -5,7 +5,7 @@ class MainClass {
     //Variáveis
     bool sentinela = true;
     
-    ModelagemPessoa Pessoa = new ModelagemPessoa();
+    ModelagemPessoa Metodos = new ModelagemPessoa();
     
     while (sentinela == true) {
       
@@ -15,27 +15,42 @@ class MainClass {
       
       switch (pergunta) {
         case 100:
-          string nomeNovo;
-          int idadeNova;
-          double pesoNovo;
-          double alturaNovo;
+          if (Metodos.MostraNome() != "") {
+            string nomeNovo;
+            int idadeNova;
+            double pesoNovo;
+            double alturaNovo;
           
-          Console.WriteLine("Digite o Nome da pessoa:");
-          nomeNovo = Console.ReadLine();
+            Console.WriteLine("Digite o Nome da pessoa:");
+            nomeNovo = Console.ReadLine();
           
-          Console.WriteLine("Digite a idade da pessoa:");
-          idadeNova = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite a idade da pessoa:");
+            idadeNova = int.Parse(Console.ReadLine());
           
-          Console.WriteLine("Digite o peso da pessoa:");
-          pesoNovo = double.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o peso da pessoa:");
+            pesoNovo = double.Parse(Console.ReadLine());
           
-          Console.WriteLine("Digite a altura da pessoa:");
-          alturaNovo = double.Parse(Console.ReadLine());
+            Console.WriteLine("Digite a altura da pessoa:");
+            alturaNovo = double.Parse(Console.ReadLine());
           
-          Pessoa.CriaPessoa(nomeNovo, idadeNova, pesoNovo, alturaNovo);
-          Pessoa.MostraNome();
+            Metodos.CriaPessoa(nomeNovo, idadeNova, pesoNovo, alturaNovo);
+            break;
+            
+          else {
+            Console.WriteLine("Parece que não há nenhuma pessoa criada, tente utilizar o código 100 para criar uma.");
+          }
+        
+        case 101:
+          int AumentaIdade;
+        
+          Console.WriteLine ("Digite quanto deseja envelhecer:");
+          AumentaIdade = int.Parse(Console.ReadLine());
+          
+          Metodos.Envelhece(AumentaIdade);
+          
+          Console.WriteLine("Sua idade atual é {0}",Metodos.MostraIdade());
           break;
-      
+          
       }
     }
   }
