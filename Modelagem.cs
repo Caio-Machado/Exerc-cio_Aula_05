@@ -2,10 +2,25 @@ using System;
 
 class ModelagemPessoa {
   // Atributos
-  private string nome;
+  private string nome = "";
   private int idade;
   private double peso;
-  private double alturaCm;
+  private double altura;
+  
+  
+  public bool Validacao () {
+    bool Resultado;
+    
+    if (nome == "") {
+      Resultado = false;
+    }
+    
+    else {
+      Resultado = true;
+    }
+    
+    return Resultado;
+  }
   
   //SETs
   //Método Cria Pessoa (SET)
@@ -17,16 +32,16 @@ class ModelagemPessoa {
     
     peso = pesoNovo;
     
-    alturaCm = alturaNova;
+    altura = alturaNova;
   }
   
   //Método envelhecer (SET)
   public void Envelhece (int AumentaIdade) {
-    for (int x = 0; x < (AumentaIdade + 1); x++) {
+    for (int x = 0; x < AumentaIdade; x++) {
       idade = idade + 1;
       
       if (idade < 21) {
-        alturaCm = alturaCm + 0.5;
+        altura = ((altura * 100) + 0.5) / 100;
       }
     }
   }
@@ -43,17 +58,22 @@ class ModelagemPessoa {
   
   //Método cresce (SET)
   public void Cresce (double AumentaAltura) {
-    alturaCm = alturaCm + AumentaAltura;
+    altura = altura + AumentaAltura;
   }
   
   //Método diminui (SET)
   public void Diminui (double DiminuiAltura) {
-    alturaCm = alturaCm - DiminuiAltura;
+    altura = altura - DiminuiAltura;
   }
   
   
   
   //GETs
+  //GET da variavel nome.
+  public string MostraNome () {
+    return nome;
+  }
+  
   //GET da variavel idade.
   public int MostraIdade () {
     return idade;
@@ -66,6 +86,6 @@ class ModelagemPessoa {
   
   //GET da variavel alturaCm
   public double MostraAltura () {
-    return alturaCm * 100;
+    return altura;
   }
 }
