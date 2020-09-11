@@ -84,7 +84,7 @@ class ModelagemPessoa {
     return peso;
   }
   
-  //GET da variavel alturaCm
+  //GET da variavel altura
   public double MostraAltura () {
     return altura;
   }

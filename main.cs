@@ -68,43 +68,96 @@ class MainClass {
             Console.WriteLine("Parece que não há nenhuma pessoa criada, tente utilizar o código 100 para criar uma.");
             break;
           }
-          
+        
+        //Caso em que foi escolhido a opção de emagrecer
         case 102:
+        
+          //Método de validação.
           if (Metodos.Validacao() == true) {
             double DiminuiPeso;
             
+            //Perfunta para recolha de dados.
             Console.WriteLine("Digite quanto deve emagrecer (Digite o valor em kg ex: 10.4):");
             DiminuiPeso = double.Parse(Console.ReadLine());
             
+            //Utilização do metodo adequado, tendo como parâmetro o dado recolhido antes.
             Metodos.Emagrece(DiminuiPeso);
             
+            //Feedback
             Console.WriteLine ("Seu peso atual agora é {0}", Metodos.MostraPeso());
             break;
           }
-          
+           //Condicional de negação da validação
           else {
             Console.WriteLine("Parece que não há nenhuma pessoa criada, tente utilizar o código 100 para criar uma.");
             break;
           }
           
+        //Caso em que foi escolhido a opção engordar.
         case 103:
+        
+          //Vondicional de validação.
           if (Metodos.Validacao() == true) {
             double AumentaPeso;
             
+            //Pergunta para coleta dos dados.
             Console.WriteLine("Digite o quanto deve engordar (digite o valor em kg ex: 10.4");
             AumentaPeso = double.Parse(Console.ReadLine());
             
+            //Utilização do método adequado com o parametro como o dado recolhido anteriomente.
             Metodos.Engorda(AumentaPeso);
             
+            //Feedback
             Console.WriteLine ("O seu peso atual agora é {0}", Metodos.MostraPeso());
             break;
           }
           
+          //Condicional da negação do método de validação.
           else {
             Console.WriteLine("Parece que não há nenhuma pessoa criada, tente utilizar o código 100 para criar uma.");
             break;
           }
-
+          
+        case 104:
+          if (Metodos.Validacao() == true) {
+            double AumentaAltura;
+            
+            Console.WriteLine("Digite o quanto deseja acrescentar a altura (utiliza em metros ex 0.15 = 15 cm)");
+            AumentaAltura = double.Parse(Console.ReadLine());
+            
+            Metodos.Cresce(AumentaAltura);
+            
+            Console.WriteLine("A sua altura atual agora é {0}", Metodos.MostraAltura());
+            
+            break;
+          }
+          
+          else {
+            Console.WriteLine("Parece que não há nenhuma pessoa criada, tente utilizar o código 100 para criar uma.");
+            break;
+          }
+          
+        case 105:
+          if (Metodos.Validacao() == true) {
+          double DiminuiAlrura;
+          
+          Console.WriteLine ("Digite o quanto deseja diminui na altura (utilize em metros ex: 0.25 = 25 cm)");
+          DiminuiAlrura = double.Parse(Console.ReadLine());
+          
+          Metodos.Diminui(DiminuiAlrura);
+          
+          Console.WriteLine("A sua altura atual agora é {0}", Metodos.MostraAltura());
+          break;
+          }
+          
+          else {
+            Console.WriteLine("Parece que não há nenhuma pessoa criada, tente utilizar o código 100 para criar uma.");
+            break;
+          }
+          
+        case 106:
+          sentinela = false;
+          break;
           
       }
     }
