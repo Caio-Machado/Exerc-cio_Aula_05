@@ -45,7 +45,7 @@ class MainClass {
         
         //Caso que executa a ação de envelhecer esta opçâo só funciona se houver informação de nome cadastrada.
         case 101:
-          //Condicional que identifica se há um nome registrado. (A unica forma de regiatrar um nome é por meio da criação de uma pessoa.)
+          //Condicional que identifica se há um nome registrado. (A unica forma de regiatrar um nome é por meio da criação de uma pessoa. Assim evitando de engordar sem haver peso ainda.)
           if (Metodos.Validacao() == true) {
             
             //Variável para alteração da idade.
@@ -117,44 +117,56 @@ class MainClass {
             Console.WriteLine("Parece que não há nenhuma pessoa criada, tente utilizar o código 100 para criar uma.");
             break;
           }
-          
+        
+        //Caso em que foi escolhido a opção Crescer
         case 104:
+          //Condicional de validação
           if (Metodos.Validacao() == true) {
             double AumentaAltura;
-            
+            //Recolhimento de dados
             Console.WriteLine("Digite o quanto deseja acrescentar a altura (utiliza em metros ex 0.15 = 15 cm)");
             AumentaAltura = double.Parse(Console.ReadLine());
             
+            //Execusão do aumento da autura
             Metodos.Cresce(AumentaAltura);
             
+            //Feedback
             Console.WriteLine("A sua altura atual agora é {0}", Metodos.MostraAltura());
             
             break;
           }
           
+          //Condicional caso a validação retorne false
           else {
             Console.WriteLine("Parece que não há nenhuma pessoa criada, tente utilizar o código 100 para criar uma.");
             break;
           }
-          
+        
+        //Caso em que foi escolhida a opçâo Diminui altura (Extra)
         case 105:
+          //Condicional de validação
           if (Metodos.Validacao() == true) {
           double DiminuiAlrura;
-          
+
+          //Recolhimento de dados
           Console.WriteLine ("Digite o quanto deseja diminui na altura (utilize em metros ex: 0.25 = 25 cm)");
           DiminuiAlrura = double.Parse(Console.ReadLine());
           
+          //Execusão da diminuição de autura
           Metodos.Diminui(DiminuiAlrura);
           
+          //Feedback
           Console.WriteLine("A sua altura atual agora é {0}", Metodos.MostraAltura());
           break;
           }
           
+          //Condicional caso a validação retorne false
           else {
             Console.WriteLine("Parece que não há nenhuma pessoa criada, tente utilizar o código 100 para criar uma.");
             break;
           }
           
+        //Caso que encerra o programa
         case 106:
           sentinela = false;
           break;

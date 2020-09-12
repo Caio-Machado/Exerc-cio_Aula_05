@@ -1,13 +1,13 @@
 using System;
 
 class ModelagemPessoa {
-  // Atributos
+  //variáveis
   private string nome = "";
   private int idade;
   private double peso;
   private double altura;
   
-  
+  //Método que valida se há ou não uma pessoa cadastrada. Para evitar que sejam feitas alterações em variáveis que sejam sem valor.
   public bool Validacao () {
     bool Resultado;
     
@@ -23,7 +23,7 @@ class ModelagemPessoa {
   }
   
   //SETs
-  //Método Cria Pessoa (SET)
+  //Método Cria Pessoa. Ele recolhe e salva as informações desejadas (SET)
   public void CriaPessoa (string nomeNovo, int idadeNova, double pesoNovo, double alturaNova) {
     
     nome = nomeNovo;
@@ -35,13 +35,14 @@ class ModelagemPessoa {
     altura = alturaNova;
   }
   
-  //Método envelhecer (SET)
+  //Método envelhecer. Ao aplicar a regra de negócio descrita no exercício ele troca os valores ja registrados em cm e depois retorna eles de volta para metros. (SET)
   public void Envelhece (int AumentaIdade) {
     for (int x = 0; x < AumentaIdade; x++) {
-      idade = idade + 1;
-      
+      //O aumento do peso vem antes do aumento da idade para certificar que todos os anos envelhecidos sejam respeitados antes dos 21
       if (idade < 21) {
         altura = ((altura * 100) + 0.5) / 100;
+
+      idade = idade + 1;
       }
     }
   }
@@ -68,7 +69,7 @@ class ModelagemPessoa {
   
   
   
-  //GETs
+  //GETs (variáveis para interagirem com as variáveis privadas)
   //GET da variavel nome.
   public string MostraNome () {
     return nome;
